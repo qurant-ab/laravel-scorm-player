@@ -1,0 +1,28 @@
+{
+  "name": "lightscale/laravel-scorm-player",
+  "description": "A package to run Scorm eLearning modules in Laravel",
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Lightscale\\ScormPlayer\\": "src/"
+    }
+  },
+  "authors": [
+    {
+    "name": "Sam Light",
+    "email": "sam@lightscale.co.uk"
+  }
+  ],
+  "require": {
+    "php": "^8.0",
+    "devianl2/laravel-scorm": "^3.0"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Lightscale\\ScormPlayer\\ScormPlayerServiceProvider"
+      ]
+    }
+  }
+}
