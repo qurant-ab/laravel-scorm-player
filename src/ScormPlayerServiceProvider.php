@@ -2,23 +2,40 @@
 
 namespace Lightscale\ScormPlayer;
 
-use Illuminate\Support\ServiceProvider;
+use Peopleaps\Scorm\ScormServiceProvider;
 
-class ScormPlayerServiceProvider extends ServiceProvider
+class ScormPlayerServiceProvider extends ScormServiceProvider
 {
 
     public function register()
     {
-        \Log::debug('player regist');
+        parent::register();
+
+        $this->mergeConfigFrom(
+            __DIR__  . '/../config/scorm-player.php', 'scorm'
+        );
+    }
+
+    protected function offerPublishing()
+    {
+        parent::offerPublishing();
+
+       $this->publishes([
+            __DIR__ . '/../database/migrations/scorm_player_improvements.php.stub' =>
+                $this->getMigrationFileName('scorm_player_improvements.php'),
+        ], 'migrations');
+
     }
 
     public function boot()
     {
+        parent::boot();
+
         // Load routes
-        //$this->loadRoutesFrom(__DIR__.'/../routes/web.php');
+        $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
 
         // Load views
-        //$this->loadViewsFrom(__DIR__.'/../resources/views', 'courier');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'scorm-player');
     }
 
 }

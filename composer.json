@@ -22,6 +22,9 @@
     "laravel": {
       "providers": [
         "Lightscale\\ScormPlayer\\ScormPlayerServiceProvider"
+      ],
+      "dont-discover": [
+        "devianl2/laravel-scorm"
       ]
     }
   }
