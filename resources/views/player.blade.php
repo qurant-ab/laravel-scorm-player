@@ -1,6 +1,23 @@
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" href="{{  manifest('css/scorm_player.css')  }}" />
+    <style>
+     * {
+       margin: 0;
+       padding: 0;
+     }
+
+     html,
+     body {
+       height: 100%;
+     }
+
+     iframe.scorm-player {
+       position: absolute;
+       width: 100%;
+       height: 100%;
+       border: none;
+     }
+    </style>
   </head>
 
   <body>
