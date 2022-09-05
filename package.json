@@ -1,0 +1,37 @@
+{
+  "private": true,
+  "scripts": {
+    "watch": "webpack --mode=development --watch",
+    "build": "webpack --mode=development",
+    "prod": "webpack --mode=production --progress"
+  },
+  "sideEffects": [
+  ],
+  "name": "laravel-scorm-player",
+  "version": "1.0.0",
+  "main": "webpack.config.js",
+  "author": "Sam Light",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/eslint-parser": "^7.16.0",
+    "@babel/preset-env": "^7.12.11",
+    "babel-loader": "^8.2.2",
+    "babel-plugin-polyfill-corejs3": "^0.5.3",
+    "clean-terminal-webpack-plugin": "^3.0.0",
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "eslint": "^8.1.0",
+    "eslint-webpack-plugin": "^3.1.0",
+    "webpack": "^5.11.1",
+    "webpack-cli": "^4.3.1",
+    "webpack-notifier": "^1.12.0",
+    "webpackbar": "^5.0.2"
+  },
+  "dependencies": {
+    "core-js": "^3.24.1",
+    "fetch-ie8": "^1.5.0",
+    "js-cookie": "^3.0.1",
+    "scorm-again": "^1.7.1"
+  }
+}
