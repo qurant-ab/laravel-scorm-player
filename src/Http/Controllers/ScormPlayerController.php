@@ -34,6 +34,7 @@ class ScormPlayerController extends Controller
         ];
 
         return view('scorm-player::player', compact(
+            'sco',
             'scorm_api_data'
         ));
     }
