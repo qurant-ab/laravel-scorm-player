@@ -10,6 +10,9 @@ Route::name('scorm-player.')->prefix('elearning')->middleware([
     'web',
 ])->group(function() {
 
+    Route::get('scorm-player-{version}.js', [ScormPlayerController::class, 'jsSource'])
+         ->name('javascript');
+
     $group = function() {
         Route::get('/scorm/{sco}', 'scormLoad')->name('scorm.load');
         Route::post('/scorm/{tracking}', 'scormCommit')->name('scorm.commit');
@@ -26,4 +29,5 @@ Route::name('scorm-player.')->prefix('elearning')->middleware([
     }
 
     $route->group($group);
+
 });

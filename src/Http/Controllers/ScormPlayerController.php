@@ -21,6 +21,8 @@ use Symfony\Component\HttpFoundation\File\Exception\FileNotFoundException;
 class ScormPlayerController extends Controller
 {
 
+    private const JS_PATH = __DIR__ . '/../../../dist/js/scorm_player.js';
+
     public function player(Request $request, Scorm $module)
     {
         $sco = $request->query('sco');
@@ -33,9 +35,14 @@ class ScormPlayerController extends Controller
             ],
         ];
 
+        $js_uri = route('scorm-player.javascript', [
+            'version' => substr(md5(filemtime(self::JS_PATH)), 10, 8)
+        ]);
+
         return view('scorm-player::player', compact(
             'sco',
-            'scorm_api_data'
+            'scorm_api_data',
+            'js_uri'
         ));
     }
 
@@ -99,6 +106,15 @@ class ScormPlayerController extends Controller
         return [
             'result' => true,
         ];
+    }
+
+    public function jsSource(Request $request)
+    {
+        return response()->file(self::JS_PATH, [
+            'Content-Type' => 'application/javascript',
+            //'Cache-Control' => $cacheControl,
+            //'ETag' => $etag,
+        ]);
     }
 
 }

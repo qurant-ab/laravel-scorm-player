@@ -27,6 +27,6 @@
     <script>
      window.scorm_api_data = {{ Js::from($scorm_api_data) }};
     </script>
-    <script src="{{ manifest('js/scorm_player.js') }}"></script>
+    <script src="{{ $js_uri }}"></script>
   </body>
 </html>
