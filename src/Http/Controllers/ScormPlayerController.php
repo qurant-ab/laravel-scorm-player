@@ -48,7 +48,7 @@ class ScormPlayerController extends Controller
 
     public function serveModule(string $uuid, string $path)
     {
-        $path = Storage::disk('scorm-local')->path("{$uuid}/{$path}");
+        $path = Storage::disk(config('scorm.disk'))->path("{$uuid}/{$path}");
         $mime = MimeType::from($path);
 
         try {
