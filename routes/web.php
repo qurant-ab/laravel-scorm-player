@@ -17,12 +17,14 @@ Route::name('scorm-player.')->prefix(config('scorm.route_prefix'))->middleware([
             Route::post('{tracking}', 'scormCommit')->name('scorm.commit');
         });
 
-        Route::prefix(config('scorm.route_prefix_player'))
-             ->get('{module:uuid}', 'player')
+        $prefix = config('scorm.route_prefix_player');
+        $prefix = rtrim($prefix, '/');
+        Route::get("{$prefix}/{module:uuid}", 'player')
              ->name('player');
 
-        Route::prefix(config('scorm.route_prefix_files'))
-             ->get('{uuid}/{path}', 'serveModule')
+        $prefix = config('scorm.route_prefix_files');
+        $prefix = rtrim($prefix, '/');
+        Route::get("{$prefix}/{uuid}/{path}", 'serveModule')
              ->where('path', '.*')
              ->name('serve');
     };
