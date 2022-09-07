@@ -8,7 +8,7 @@
   "sideEffects": [
   ],
   "name": "laravel-scorm-player",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "main": "webpack.config.js",
   "author": "Sam Light",
   "license": "ISC",
