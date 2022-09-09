@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use Lightscale\ScormPlayer\Controllers\ScormPlayerController;
 
-use Lightscale\ScormPlayer\Http\Controllers\ScormPlayerController;
+use Illuminate\Support\Facades\Route;
 
 Route::name('scorm-player.')->prefix(config('scorm.route_prefix'))->middleware([
     config('scorm.middleware_group', 'web'),
