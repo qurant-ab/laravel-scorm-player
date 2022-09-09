@@ -7,4 +7,5 @@ return [
     'route_prefix_files' => 'files',
     'middleware_group' => 'web',
     'middleware' => '',
+    'cache_timeout' => 60 * 10,
 ];
