@@ -14,7 +14,7 @@ use Illuminate\Http\Response;
 
 use Illuminate\Support\Facades\Cache;
 
-class ScormPlayerAuthMiddleware
+abstract class ScormPlayerAuthMiddleware
 {
     private $cacheTimeout;
 
@@ -84,8 +84,5 @@ class ScormPlayerAuthMiddleware
         throw new \Exception('Failed to find module from route');
     }
 
-    protected function authorize(Request $req, Scorm $module) : bool
-    {
-        return false;
-    }
+    abstract protected function authorize(Request $req, Scorm $module) : bool;
 }
