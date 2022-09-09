@@ -1,6 +1,6 @@
 <?php
 
-namespace Lightscale\ScormPlayer\Http\Controllers;
+namespace Lightscale\ScormPlayer\Controllers;
 
 use Lightscale\ScormPlayer\Models\{
     Scorm,
@@ -22,7 +22,7 @@ use Symfony\Component\HttpFoundation\File\Exception\FileNotFoundException;
 class ScormPlayerController extends Controller
 {
 
-    private const JS_PATH = __DIR__ . '/../../../dist/js/scorm_player.js';
+    private const JS_PATH = __DIR__ . '/../../dist/js/scorm_player.js';
 
     public function player(Request $request, Scorm $module)
     {
@@ -113,8 +113,6 @@ class ScormPlayerController extends Controller
     {
         return response()->file(self::JS_PATH, [
             'Content-Type' => 'application/javascript',
-            //'Cache-Control' => $cacheControl,
-            //'ETag' => $etag,
         ]);
     }
 
