@@ -16,7 +16,7 @@
   ],
   "require": {
     "php": "^8.0",
-    "devianl2/laravel-scorm": "^3.0"
+    "devianl2/laravel-scorm": "^4.0"
   },
   "extra": {
     "laravel": {
