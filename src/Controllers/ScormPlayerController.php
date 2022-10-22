@@ -75,6 +75,7 @@ class ScormPlayerController extends Controller
             $tracking = new ScormScoTracking([
                 'uuid' => Str::uuid(),
                 'progression' => 0,
+                'completion_status' => 'not attempted',
             ]);
             $tracking->user()->associate($user);
             $tracking->sco_id = $sco->id;
