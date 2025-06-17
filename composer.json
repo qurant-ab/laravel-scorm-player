@@ -10,13 +10,19 @@
   },
   "authors": [
     {
-    "name": "Sam Light",
-    "email": "sam@lightscale.co.uk"
-  }
+      "name": "Sam Light",
+      "email": "sam@lightscale.co.uk"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://git.lightscale.co.uk/laravel-scorm.git"
+    }
   ],
   "require": {
-    "php": "^8.0",
-    "devianl2/laravel-scorm": "^4.0"
+    "php": "^8.1",
+    "lightscale/laravel-scorm": "^5.0"
   },
   "extra": {
     "laravel": {
