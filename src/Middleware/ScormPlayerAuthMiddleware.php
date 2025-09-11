@@ -1,4 +1,4 @@
-<?php
+q<?php
 
 namespace Lightscale\ScormPlayer\Middleware;
 
@@ -34,7 +34,7 @@ abstract class ScormPlayerAuthMiddleware
 
         $user = $request->user();
         $authorized = Cache::remember(
-            'scorm-player-authorize-{$user->id}_{$module->id}',
+            "scorm-player-authorize-{$user->id}_{$module->id}",
             $this->cacheTimeout,
             fn() => $this->authorize($request, $module)
         );
@@ -45,7 +45,7 @@ abstract class ScormPlayerAuthMiddleware
 
     protected function failedResponse() : Response
     {
-        return response('Not authorized', 503);
+        return response('Not authorized', 403);
     }
 
     protected function findModule(Request $request) : Scorm
