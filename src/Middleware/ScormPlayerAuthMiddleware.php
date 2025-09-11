@@ -39,13 +39,9 @@ abstract class ScormPlayerAuthMiddleware
             fn() => $this->authorize($request, $module)
         );
 
-        if($authorized) return $next($request);
-        else return $this->failedResponse();
-    }
+        if (!$authorized) abort(403);
 
-    protected function failedResponse() : Response
-    {
-        return response('Not authorized', 403);
+        return $next($request);
     }
 
     protected function findModule(Request $request) : Scorm
