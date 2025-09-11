@@ -22,7 +22,7 @@
   ],
   "require": {
     "php": "^8.1",
-    "lightscale/laravel-scorm": "^5.0"
+    "devianl2/laravel-scorm": "^5.0"
   },
   "extra": {
     "laravel": {
