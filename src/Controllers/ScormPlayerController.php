@@ -65,13 +65,15 @@ class ScormPlayerController extends Controller
     {
         $user = Auth::user();
 
-        $tracking = ScormScoTracking::where([
+        $trackingModel = config('scorm.models.scorm_sco_tracking');
+
+        $tracking = $trackingModel::where([
             'sco_id' => $sco->id,
             'user_id' => $user->id,
         ])->first();
 
         if(!$tracking) {
-            $tracking = new ScormScoTracking([
+            $tracking = new $trackingModel([
                 'uuid' => Str::uuid(),
                 'progression' => 0,
                 'completion_status' => 'not attempted',
