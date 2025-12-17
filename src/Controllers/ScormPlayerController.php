@@ -100,10 +100,10 @@ class ScormPlayerController extends Controller
         ];
     }
 
-    public function scormCommit(Request $request, int $tracking)
+    public function scormCommit(Request $request, ScormScoTracking $tracking)
     {
         $trackingModel = config('scorm.models.scorm_sco_tracking');
-        $tracking = $trackingModel::findOrFail($tracking);
+        $tracking = $trackingModel::findOrFail($tracking->id);
 
         $data = $request->all();
 
